@@ -18,6 +18,9 @@
 
   --box-shadow: 0 0 10px -5px black;
 }
+body {
+  background-color: var(--main-color);
+}
 html {
   font-family: "Cairo", sans-serif;
   scroll-behavior: smooth;
@@ -245,23 +248,16 @@ header .list .active {
   display: flex;
   padding-top: 90px;
 }
-.main-section::before {
+.main-section img {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../Images/main-section.webp);
-  background-color: var(--main-color);
-  background-size: cover;
+  object-fit: cover;
   -webkit-filter: brightness(0.6);
   filter: brightness(0.6);
-}
-@media (min-width: 768px) {
-  .main-section::before {
-    background-image: url(../Images/main-section-huge.webp);
-  }
 }
 
 .main-section .container {
