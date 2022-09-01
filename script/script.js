@@ -3,10 +3,10 @@
 let sidebarMenue = document.querySelector(".sidebar-menu");
 let sidebarOverlay = document.querySelector(".sidebar-overlay");
 let closeH = document.querySelector(".close");
-let iconParent = document.querySelector(".click");
+let clickMenu = document.querySelector(".click-menu");
 let urls = document.querySelectorAll(".sidebar-menu nav a");
-let menuBtn = document.querySelector(".menu-lines");
-let fakeX = document.querySelector(".fake-x");
+let menuBars = document.querySelector(".menu-bars");
+let menuX = document.querySelector(".menu-x");
 
 // ⬇ executed when user "click" menu button
 function open() {
@@ -14,25 +14,24 @@ function open() {
   sidebarOverlay.style.visibility = "visible";
   sidebarMenue.style.visibility = "visible";
   sidebarOverlay.style.opacity = "1";
-  iconParent.style.backgroundColor = "transparent";
-  menuBtn.classList.add("open");
-  fakeX.style.zIndex = "16";
+  clickMenu.style.backgroundColor = "transparent";
+  menuBars.style.display = "none";
+  menuX.style.display = "flex";
 }
 
 // ⬇ executed when user want to "Close" the menu
 function close() {
-  fakeX.style.zIndex = null;
   sidebarMenue.style.transform = null;
-  menuBtn.style.display = null;
+  menuBars.style.display = null;
+  menuX.style.display = null;
   sidebarOverlay.style.visibility = null;
   sidebarOverlay.style.opacity = null;
   sidebarMenue.style.visibility = null;
-  iconParent.style.backgroundColor = null;
-  menuBtn.classList.remove("open");
+  clickMenu.style.backgroundColor = null;
 }
 
-menuBtn.onclick = open;
-fakeX.onclick = close;
+menuBars.onclick = open;
+menuX.onclick = close;
 sidebarOverlay.onclick = close;
 
 // ⬇ give "active" to clicked list & execute "close" ⬇
@@ -51,3 +50,11 @@ for (var i = 0; i < links.length; i++) {
 }
 
 // End Header Script
+
+// Change ".head-logo img" width after scrolling for little
+
+let headlogo = document.querySelector(".head-logo img");
+window.onscroll = () =>
+  scrollY > 50
+    ? (headlogo.style.width = "50px")
+    : (headlogo.style.width = null);
